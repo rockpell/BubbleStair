@@ -38,10 +38,14 @@ int	main(int argc, char **argv)
 			printf("file open fail\n");
 			exit(0);
 		}
-		//result[idx + 2] = print_file(content);
+		if ((result[idx + 2] = print_file(content, idx)) == 0)
+		{
+			printf("c file create fail\n");
+			exit(0);
+		}
 		free(content);
 		idx++;
 	}
-	//execv("/usr/bin/gcc", result);
+	execv("/usr/bin/gcc", result);
 	return (0);
 }
