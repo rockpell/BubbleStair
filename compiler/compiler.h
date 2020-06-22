@@ -7,5 +7,5 @@ typedef struct	s_point
 }				point;
 
 char	*translate(char *str);
-
+char	*print_file(char *content, int idx);
 #endif
