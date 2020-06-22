@@ -37,7 +37,7 @@ char	*print_file(char *content, int nbr)
 	}
 	ft_strncpy(&(path[size]), ".c", 2);
 	path[size + 2] = 0;
-	fd = open(path, O_WRONLY | O_CREAT);
+	fd = open(path, O_WRONLY | O_CREAT | S_IRWXU | S_IRWXG | S_IRWXO);
 	if (fd < 0)
 		return (0);
 	write(fd, content, len);
