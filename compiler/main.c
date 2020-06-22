@@ -24,7 +24,8 @@ int	main(int argc, char **argv)
 	char	**result;
 
 	idx = 1;
-	result = (char **)malloc(sizeof(char *) * (argc + 3));
+	if ((result = (char **)malloc(sizeof(char *) * (argc + 3))) == 0)
+		return (0);
 	result[argc] = 0;
 	result[0] = "/usr/bin/gcc";
 	result[1] = "-o";
@@ -38,8 +39,6 @@ int	main(int argc, char **argv)
 			exit(0);
 		}
 		//result[idx + 2] = print_file(content);
-		printf("%s\n", content);
-	//	result[idx + 2] = argv[idx];
 		free(content);
 		idx++;
 	}

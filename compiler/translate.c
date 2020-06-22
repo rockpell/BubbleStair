@@ -27,7 +27,8 @@ char	*add_char_to_str(char *str, char c)
 
 	len = ft_strlen(str);
 	idx = 0;
-	result = (char *)malloc(sizeof(char) * len + 2);
+	if ((result = (char *)malloc(sizeof(char) * len + 2)) == 0)
+		return (str);
 	while (str[idx] != 0)
 	{
 		result[idx] = str[idx];
@@ -62,7 +63,8 @@ char	*translate(char *str)
 	fd = open(str, O_RDONLY);
 	if (fd < 0)
 		return (NULL);
-	result = (char *)malloc(sizeof(char) * 1);
+	if ((result = (char *)malloc(sizeof(char) * 1)) == 0)
+		return (NULL);
 	result[0] = 0;
 	while (get_next_line(fd, &line) > 0)
 	{
