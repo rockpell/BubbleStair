@@ -82,5 +82,6 @@ char	*translate(char *str)
 		free(line);
 		line = 0;
 	}
+	printf("%s\n", result);
 	return (result);
 }

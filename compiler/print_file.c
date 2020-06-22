@@ -1,6 +1,7 @@
 #include <fcntl.h>
 #include <stdlib.h>
 #include <unistd.h>
+#include <stdio.h>
 #include "get_next_line.h"
 
 int		get_nbr_size(int nbr)
@@ -39,7 +40,10 @@ char	*print_file(char *content, int nbr)
 	path[size + 2] = 0;
 	fd = open(path, O_WRONLY | O_CREAT);
 	if (fd < 0)
+	{
+		printf("this is error\n");
 		return (0);
+	}
 	write(fd, content, len);
 	return (path);
 }
