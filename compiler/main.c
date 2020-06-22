@@ -1,4 +1,5 @@
-#include <stdilb.h>
+#include <stdlib.h>
+#include <stdio.h>
 #include <unistd.h>
 
 int	main(int argc, char **argv)
@@ -8,23 +9,18 @@ int	main(int argc, char **argv)
 	char	**result;
 
 	idx = 1;
-	result = (char **)malloc(sizeof(char *) * (argc + 1));
+	result = (char **)malloc(sizeof(char *) * (argc + 3));
 	result[argc] = 0;
-	result[0] = "program";
+	result[0] = "/usr/bin/gcc";
+	result[1] = "-o";
+	result[2] = "program";
 	while (idx < argc)
 	{
 		content = translate(argv[idx]);
-		result[idx] = print_file(content);
+		result[idx + 2] = print_file(content);
 		free(content);
 		idx++;
 	}
-	execv("gcc -o", result);
-	idx = 0;
-	while (idx < argc)
-	{
-		free(result[idx]);
-		idx++;
-	}
-	free(result);
+	execv("/usr/bin/gcc", result);
 	return (0);
 }
