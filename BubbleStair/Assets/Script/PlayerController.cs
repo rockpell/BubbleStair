@@ -52,7 +52,7 @@ public class PlayerController : MonoBehaviour
             {
                 sw.Flush();
                 sw.Close();
-                Debug.Log("jinwoo is babo");
+                Application.Quit();
             }
             else
             {
