@@ -61,7 +61,10 @@ public class PlayerController : MonoBehaviour
                 text = text.Replace("O", " ");
             }
             transform.position = new Vector3(0, 0, 0);
-
+        }
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Application.Quit();
         }
     }
 }
